@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ev
 
 git clone https://github.com/release-engineering/fedmsg_meta_umb.git
 cd fedmsg_meta_umb
