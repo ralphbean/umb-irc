@@ -1,5 +1,5 @@
 
-IMAGE_NAME = umb-irc
+IMAGE_NAME = umb-fedmsg-builder
 
 build:
 	docker build -t $(IMAGE_NAME) .

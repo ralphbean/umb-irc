@@ -1,16 +1,14 @@
-# umb-irc
-#FROM openshift/base-centos7
-FROM rhscl/s2i-base-rhel7
+FROM openshift/base-centos7
 
 MAINTAINER Ralph Bean <rbean@redhat.com>
 
 ENV BUILDER_VERSION 1.0
 
-LABEL io.k8s.description="Platform for building umb-irc" \
-      io.k8s.display-name="builder 1.0" \
-      io.openshift.tags="builder,umb,irc"
+LABEL io.k8s.description="Platform for building umb fedmsg apps" \
+      io.k8s.display-name="umb fedmsg builder 1.0" \
+      io.openshift.tags="builder,umb,fedmsg"
 
-RUN yum install -y epel-release && yum -y install python-pip fedmsg-irc && yum clean all -y
+RUN yum install -y epel-release && yum -y install python-pip fedmsg-hub fedmsg-irc && yum clean all -y
 
 # Basic stuff
 COPY ./* /opt/app-root/
