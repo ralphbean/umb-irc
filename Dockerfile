@@ -1,5 +1,6 @@
 # umb-irc
-FROM openshift/base-centos7
+#FROM openshift/base-centos7
+FROM rhscl/s2i-base-rhel7
 
 MAINTAINER Ralph Bean <rbean@redhat.com>
 
