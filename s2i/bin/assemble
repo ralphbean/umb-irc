@@ -1,6 +1,7 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
-echo "testing."
+echo "stdout."
+>&2 echo "stderr."
 echo $(pwd)
 ls -alhZ
 
