@@ -1,4 +1,8 @@
-#!/bin/bash -ev
+#!/bin/bash -ex
+
+echo "testing."
+echo $(pwd)
+ls -alhZ
 
 git clone https://github.com/release-engineering/fedmsg_meta_umb.git
 cd fedmsg_meta_umb
