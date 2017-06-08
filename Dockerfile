@@ -10,15 +10,15 @@ LABEL io.k8s.description="Platform for building umb fedmsg apps" \
 
 RUN yum install -y epel-release && yum -y install python-pip python-virtualenv fedmsg-hub fedmsg-irc && yum clean all -y
 
-# Basic stuff
-COPY ./s2i/bin/ /usr/libexec/s2i
-
-# Also, configs.
-COPY fedmsg.d/* /etc/fedmsg.d/
-
 RUN chown -R 1001:1001 /opt/app-root
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
+
+# Also, configs.
+COPY fedmsg.d/* /etc/fedmsg.d/
+
+# Basic stuff
+COPY ./s2i/bin/ /usr/libexec/s2i
 
 CMD ["usage"]
