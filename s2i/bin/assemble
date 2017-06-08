@@ -1,10 +1,5 @@
 #!/bin/bash -e
 
-echo "stdout."
->&2 echo "stderr."
-echo $(pwd)
-ls -alhZ
-
 git clone https://github.com/release-engineering/fedmsg_meta_umb.git
 cd fedmsg_meta_umb
 
