@@ -1,3 +1,4 @@
 #!/bin/bash -e
 
-exec fedmsg-irc
+source venv/bin/activate
+PYTHONPATH=.:$VIRTUAL_ENV/lib/python2.7/site-packages fedmsg-irc
