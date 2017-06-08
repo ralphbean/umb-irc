@@ -16,7 +16,7 @@ COPY ./* /opt/app-root/
 COPY ./s2i/bin/ /usr/libexec/s2i
 
 # Also, configs.
-COPY fedmsg.d/* /etc/fedmsg.d/.
+COPY fedmsg.d/* /etc/fedmsg.d/
 
 RUN chown -R 1001:1001 /opt/app-root
 
