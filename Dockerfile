@@ -17,6 +17,9 @@ RUN yum install -y epel-release git python-pip && yum -y install fedmsg-irc
 COPY ./assemble /usr/local/s2i/assemble
 COPY ./run /usr/local/s2i/run
 
+# Also, configuration
+COPY fedmsg.d/* /etc/fedmsg.d/.
+
 # Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R 1001:1001 /opt/app-root
 
