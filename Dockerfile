@@ -11,7 +11,6 @@ LABEL io.k8s.description="Platform for building umb fedmsg apps" \
 RUN yum install -y epel-release && yum -y install python-pip python-virtualenv fedmsg-hub fedmsg-irc && yum clean all -y
 
 # Basic stuff
-COPY ./* /opt/app-root/
 COPY ./s2i/bin/ /usr/libexec/s2i
 
 # Also, configs.
