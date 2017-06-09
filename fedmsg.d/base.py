@@ -7,7 +7,7 @@ config = dict(
     stomp_heartbeat=1000,
     stomp_user=os.environ['UMB_USERNAME'],
     stomp_pass=os.environ['UMB_PASSWORD'],
-    stomp_ssl_crt='/opt/app-root/umb-dev.crt',
-    stomp_ssl_key='/opt/app-root/umb-dev.key',
+    stomp_ssl_crt='/secrets/umb-dev.crt',
+    stomp_ssl_key='/secrets/umb-dev.key',
     stomp_queue='/queue/Consumer.rbean.VirtualTopic.eng.>',
 )
