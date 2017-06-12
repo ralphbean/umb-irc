@@ -16,13 +16,15 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 #
 # Authors:  Ralph Bean <rbean@redhat.com>
-#
+
+import os
+
 config = dict(
     irc=[
         dict(
             network='irc.bos.redhat.com',
             port=6667,
-            nickname='umb-dev',
+            nickname='umb-%s' % os.environ['UMB_ENVIRON'],
             channel='umb-firehose',
             timeout=120,
             make_pretty=True,
@@ -39,19 +41,16 @@ config = dict(
     # the available colors can be looked up from here:
     # https://github.com/fedora-infra/fedmsg/blob/0.16.4/fedmsg/consumers/ircbot.py#L48-L65
     irc_color_lookup={
-        "fas": "light blue",
-        "bodhi": "green",
+        "brew": "light blue",
+        "errata": "green",
         "git": "red",
-        "tagger": "brown",
-        "wiki": "purple",
-        "logger": "orange",
-        "pkgdb": "teal",
-        "buildsys": "yellow",
-        "planet": "light green",
+        "pub": "brown",
+        "rpmdiff": "purple",
+        "resultsdb": "orange",
     },
 
     # color for title if color lookup not defined
     irc_default_color='light grey',
 
-    irc_method='notice',  # Either 'msg' or 'notice'
+    irc_method='msg',  # Either 'msg' or 'notice'
 )
