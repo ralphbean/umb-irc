@@ -1,7 +1,7 @@
 FROM centos:7
 LABEL \
-    name="WaiverDB application" \
-    vendor="WaiverDB developers" \
+    name="IRC bot for the Unified Message Bus (UMB)" \
+    vendor="Factory 2.0" \
     license="GPLv2+" \
     build-date=""
 RUN yum -y install epel-release && yum -y clean all
