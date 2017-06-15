@@ -10,5 +10,5 @@ config = dict(
     stomp_pass=os.environ['UMB_PASSWORD'],
     stomp_ssl_crt='/secrets/cert',
     stomp_ssl_key='/secrets/key',
-    stomp_queue='/topic/Consumer.client-umb-irc.VirtualTopic.eng.>',
+    stomp_queue='/topic/Consumer.client-umb-irc.umb-irc.VirtualTopic.eng.>',
 )
