@@ -29,7 +29,7 @@ config = dict(
             timeout=120,
             make_pretty=True,
             make_terse=True,
-            make_short=True,
+            make_short=False,
             line_rate=0.9,
             # Don't show the heartbeat... gross.
             filters=dict(
