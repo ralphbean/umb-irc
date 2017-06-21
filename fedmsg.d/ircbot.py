@@ -22,7 +22,7 @@ import os
 config = dict(
     irc=[
         dict(
-            network='irc.bos.redhat.com',
+            network='irc.devel.redhat.com',
             port=6667,
             nickname='umb-%s' % os.environ['UMB_ENVIRON'],
             channel='umb-firehose',
