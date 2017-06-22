@@ -4,6 +4,11 @@ IMAGE_NAME = umb-irc
 build:
 	docker build -t $(IMAGE_NAME) .
 
+deploy:
+	oc start-build umb-irc-dev
+	oc start-build umb-irc-stage
+	oc start-build umb-irc-prod
+
 destroy:
 	oc delete {bc,dc,is}/umb-irc-{dev,stage,prod}
 
