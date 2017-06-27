@@ -18,5 +18,11 @@ RUN cd /var/tmp/fedmsg_meta_umb \
     && git checkout 0158ffe \
     && python setup.py install
 ADD fedmsg.d /etc/fedmsg.d/
+# Temporarilly install fedmsg from git to try some stuff out
+RUN cd /var/tmp && \
+    git clone https://github.com/fedora-infra/fedmsg && \
+    cd fedmsg && \
+    git checkout feature/headers && \
+    python setup.py install
 USER 1001
 ENTRYPOINT fedmsg-irc
