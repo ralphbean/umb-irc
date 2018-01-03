@@ -6,6 +6,7 @@ LABEL \
     build-date=""
 RUN yum -y install epel-release && yum -y clean all
 RUN yum -y install --setopt=tsflags=nodocs --enablerepo=epel-testing\
+    python-twisted-words \
     fedmsg-irc \
     git \
     python-pip \
