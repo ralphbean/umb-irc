@@ -40,18 +40,25 @@ config = dict(
         dict(
             network='irc.devel.redhat.com',
             port=6667,
-            nickname='umb-%s' % os.environ['UMB_ENVIRON'],
+            nickname='freshmaker-%s' % os.environ['UMB_ENVIRON'],
             channel='threebean',
             timeout=120,
             make_pretty=True,
             make_terse=True,
             make_short=False,
             line_rate=0.9,
-            # Don't show the heartbeat... gross.
             filters=dict(
-                topic=[],
-                body=['lub-dub'],
+                topic=[
+                    # Ignore anything that *doesn't* have this in the topic.
+                    '^((?!(freshmaker\.event)).)*$',
+                ],
+                body=[
+                    # Ignore any message with any of these in the body.
+                    "release-e2e",
+                    "SKIPPED",
+                ],
             ),
+
         ),
     ],
     # the available colors can be looked up from here:
