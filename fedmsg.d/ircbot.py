@@ -37,6 +37,22 @@ config = dict(
                 body=['lub-dub'],
             ),
         ),
+        dict(
+            network='irc.devel.redhat.com',
+            port=6667,
+            nickname='umb-%s' % os.environ['UMB_ENVIRON'],
+            channel='threebean',
+            timeout=120,
+            make_pretty=True,
+            make_terse=True,
+            make_short=False,
+            line_rate=0.9,
+            # Don't show the heartbeat... gross.
+            filters=dict(
+                topic=[],
+                body=['lub-dub'],
+            ),
+        ),
     ],
     # the available colors can be looked up from here:
     # https://github.com/fedora-infra/fedmsg/blob/0.16.4/fedmsg/consumers/ircbot.py#L48-L65
