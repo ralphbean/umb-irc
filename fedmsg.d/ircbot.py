@@ -37,29 +37,6 @@ config = dict(
                 body=['lub-dub'],
             ),
         ),
-        dict(
-            network='irc.devel.redhat.com',
-            port=6667,
-            nickname='freshmaker-%s' % os.environ['UMB_ENVIRON'],
-            channel='freshmaker',
-            timeout=120,
-            make_pretty=True,
-            make_terse=True,
-            make_short=False,
-            line_rate=0.9,
-            filters=dict(
-                topic=[
-                    # Ignore anything that *doesn't* have this in the topic.
-                    '^((?!(freshmaker\.event)).)*$',
-                ],
-                body=[
-                    # Ignore any message with any of these in the body.
-                    "release-e2e",
-                    "SKIPPED",
-                ],
-            ),
-
-        ),
     ],
     # the available colors can be looked up from here:
     # https://github.com/fedora-infra/fedmsg/blob/0.16.4/fedmsg/consumers/ircbot.py#L48-L65
@@ -77,3 +54,50 @@ config = dict(
 
     irc_method='msg',  # Either 'msg' or 'notice'
 )
+if os.environ['UMB_ENVIRON'] == 'prod':
+    config['irc'].extend([
+        dict(
+            network='irc.devel.redhat.com',
+            port=6667,
+            nickname='freshbot',
+            channel='pnt-devops-dev',
+            timeout=120,
+            make_pretty=True,
+            make_terse=True,
+            make_short=False,
+            line_rate=0.9,
+            filters=dict(
+                topic=[
+                    # Ignore anything that *doesn't* have this in the topic.
+                    '^((?!(freshmaker\.event)).)*$',
+                ],
+                body=[
+                    # Ignore any message with any of these in the body.
+                    "release-e2e",
+                    "SKIPPED",
+                ],
+            ),
+        ),
+        dict(
+            network='irc.devel.redhat.com',
+            port=6667,
+            nickname='freshmaker',
+            channel='cfc',
+            timeout=120,
+            make_pretty=True,
+            make_terse=True,
+            make_short=False,
+            line_rate=0.9,
+            filters=dict(
+                topic=[
+                    # Ignore anything that *doesn't* have this in the topic.
+                    '^((?!(freshmaker\.event)).)*$',
+                ],
+                body=[
+                    # Ignore any message with any of these in the body.
+                    "release-e2e",
+                    "SKIPPED",
+                ],
+            ),
+        ),
+    ])
