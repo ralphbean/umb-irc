@@ -30,7 +30,7 @@ config = dict(
             make_pretty=True,
             make_terse=True,
             make_short=False,
-            line_rate=0.9,
+            line_rate=0.5,
             # Don't show the heartbeat... gross.
             filters=dict(
                 topic=[],
@@ -65,7 +65,7 @@ if os.environ['UMB_ENVIRON'] == 'prod':
             make_pretty=True,
             make_terse=True,
             make_short=False,
-            line_rate=0.9,
+            line_rate=0.5,
             filters=dict(
                 topic=[
                     # Ignore anything that *doesn't* have this in the topic.
@@ -87,7 +87,7 @@ if os.environ['UMB_ENVIRON'] == 'prod':
             make_pretty=True,
             make_terse=True,
             make_short=False,
-            line_rate=0.9,
+            line_rate=0.5,
             filters=dict(
                 topic=[
                     # Ignore anything that *doesn't* have this in the topic.
