@@ -16,7 +16,7 @@ RUN cd /var/tmp \
     && cd fedmsg_meta_umb
 RUN cd /var/tmp/fedmsg_meta_umb \
     && git fetch \
-    && git checkout a1ea7fc \
+    && git checkout b31d406 \
     && python setup.py install
 ADD fedmsg.d /etc/fedmsg.d/
 USER 1001
