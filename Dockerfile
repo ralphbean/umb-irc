@@ -13,10 +13,7 @@ RUN yum -y install --setopt=tsflags=nodocs --enablerepo=epel-testing\
     && yum -y clean all
 RUN cd /var/tmp \
     && git clone https://github.com/release-engineering/fedmsg_meta_umb \
-    && cd fedmsg_meta_umb
-RUN cd /var/tmp/fedmsg_meta_umb \
-    && git fetch \
-    && git checkout 0b7a93e \
+    && cd fedmsg_meta_umb \
     && python setup.py install
 ADD fedmsg.d /etc/fedmsg.d/
 USER 1001
