@@ -100,4 +100,22 @@ if os.environ['UMB_ENVIRON'] == 'prod':
                 ],
             ),
         ),
+        dict(
+            network='irc.devel.redhat.com',
+            port=6667,
+            nickname='greenwave',
+            channel='greenwave',
+            timeout=120,
+            make_pretty=True,
+            make_terse=True,
+            make_short=False,
+            line_rate=0.5,
+            filters=dict(
+                topic=[
+                    # Ignore anything that *doesn't* have this in the topic.
+                    '^((?!(greenwave\.decision\.update)).)*$',
+                ],
+                body=[],
+            ),
+        ),
     ])
