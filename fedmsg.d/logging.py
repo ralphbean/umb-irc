@@ -1,3 +1,5 @@
+import os
+
 # Setup fedmsg logging.
 # See the following for constraints on this format https://bit.ly/Xn1WDn
 bare_format = "[%(asctime)s][%(name)10s %(levelname)7s] %(message)s"
@@ -15,18 +17,18 @@ config = dict(
             console={
                 "class": "logging.StreamHandler",
                 "formatter": "bare",
-                "level": "INFO",
+                "level": os.environ.get("UMB_IRC_LOG_LEVEL", "INFO"),
                 "stream": "ext://sys.stdout",
             },
         ),
         loggers=dict(
             fedmsg={
-                "level": "INFO",
+                "level": os.environ.get("UMB_IRC_LOG_LEVEL", "INFO"),
                 "propagate": False,
                 "handlers": ["console"],
             },
             moksha={
-                "level": "INFO",
+                "level": os.environ.get("UMB_IRC_LOG_LEVEL", "INFO"),
                 "propagate": False,
                 "handlers": ["console"],
             },
