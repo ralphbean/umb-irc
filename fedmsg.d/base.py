@@ -1,10 +1,14 @@
 import os
 
+heartbeat = os.environ.get('UMB_HEARTBEAT')
+if heartbeat is not None:
+    heartbeat = int(heartbeat)
+
 config = dict(
     environment="dev",
     zmq_enabled=False,
-    #'messaging-devops-broker01.dev1.ext.devlab.redhat.com:61612,messaging-devops-broker02.dev1.ext.devlab.redhat.com:61612',
-    stomp_heartbeat=1000,
+    # 'messaging-devops-broker01.dev1.ext.devlab.redhat.com:61612,messaging-devops-broker02.dev1.ext.devlab.redhat.com:61612',
+    stomp_heartbeat=heartbeat,
     stomp_uri=os.environ['UMB_URI'],
     stomp_user=os.environ['UMB_USERNAME'],
     stomp_pass=os.environ['UMB_PASSWORD'],
