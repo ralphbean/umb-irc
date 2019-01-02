@@ -1,8 +1,6 @@
 import os
 
-heartbeat = os.environ.get('UMB_HEARTBEAT')
-if heartbeat is not None:
-    heartbeat = int(heartbeat)
+heartbeat = int(os.environ.get('UMB_HEARTBEAT', 0))
 
 config = dict(
     environment="dev",
