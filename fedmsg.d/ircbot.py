@@ -70,6 +70,8 @@ if os.environ['UMB_ENVIRON'] == 'prod':
                 topic=[
                     # Ignore anything that *doesn't* have this in the topic.
                     '^((?!(freshmaker\.event)).)*$',
+                    # But, also ignore the '.min' topic.
+                    'freshmaker.event.state.changed.min',
                 ],
                 body=[
                     # Ignore any message with any of these in the body.
@@ -92,6 +94,8 @@ if os.environ['UMB_ENVIRON'] == 'prod':
                 topic=[
                     # Ignore anything that *doesn't* have this in the topic.
                     '^((?!(freshmaker\.event)).)*$',
+                    # But, also ignore the '.min' topic.
+                    'freshmaker.event.state.changed.min',
                 ],
                 body=[
                     # Ignore any message with any of these in the body.
