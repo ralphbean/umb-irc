@@ -37,6 +37,25 @@ config = dict(
                 body=['lub-dub'],
             ),
         ),
+        dict(
+            network='irc.devel.redhat.com',
+            port=6667,
+            nickname='prod-svc-%s' % os.environ['UMB_ENVIRON'],
+            channel='rcm-notify',
+            timeout=120,
+            make_pretty=True,
+            make_terse=True,
+            make_short=False,
+            line_rate=0.5,
+            # Don't show the heartbeat... gross.
+            filters=dict(
+                topic=[
+                    # Ignore anything that *doesn't* have this in the topic.
+                    '^((?!(engineering)).)*$',
+                ],
+                body=['lub-dub'],
+            ),
+        ),
     ],
     # the available colors can be looked up from here:
     # https://github.com/fedora-infra/fedmsg/blob/0.16.4/fedmsg/consumers/ircbot.py#L48-L65
