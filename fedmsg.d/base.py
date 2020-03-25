@@ -14,7 +14,7 @@ config = dict(
     stomp_pass=os.environ['UMB_PASSWORD'],
     stomp_ssl_crt='/secrets/cert',
     stomp_ssl_key='/secrets/key',
-    stomp_queue='/queue/Consumer.client-umb-irc.umb-irc.VirtualTopic.>',
+    stomp_queue='/queue/Consumer.client-umb-irc.umb-irc.VirtualTopic.eng.>',
 )
 
 config['moksha.blocking_mode'] = blocking_mode
